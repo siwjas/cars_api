@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  engine: MyString
+  cambio: MyString
+  fuel: MyString
+  price: 1.5
+  year: 1
+  manufacturer: one
+
+two:
+  name: MyString
+  engine: MyString
+  cambio: MyString
+  fuel: MyString
+  price: 1.5
+  year: 1
+  manufacturer: two
