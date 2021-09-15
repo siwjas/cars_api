@@ -14,10 +14,8 @@ class Api::V1::ManufacturersController < ApplicationController
 
   # GET /manufacturers/1
   api :GET, '/manufacturers/:id', 'Lists one manufacturer and their cars'
-  param :id, :number, required: true, desc: 'Required manufacturer id'
-  api :GET, '/manufacturers/:id/cars/:car_id', 'Lists a car belonging to the current manufacturer'
-  param :id, :number, required: true, desc: 'Required manufacturer id'
-  param :car_id, :number, required: true, desc: 'Required car id'
+  param :id, :number, required: true, desc: 'Required manufacturer ID'
+  example " 'manufacturer_id': 5 "
   def show
     render json: @manufacturer
   end
@@ -25,6 +23,7 @@ class Api::V1::ManufacturersController < ApplicationController
   # POST /manufacturers
   api :POST, '/manufacturers', 'Create a manufacturer'
   param_group :manufacturer
+  example " 'name': 'Audi' "
   def create
     @manufacturer = Manufacturer.new(manufacturer_params)
 
@@ -36,8 +35,10 @@ class Api::V1::ManufacturersController < ApplicationController
   end
 
   # PATCH/PUT /manufacturers/1
-  api :PUT, '/manufacturers/:id', 'Update a manufacturer'
-  param :id, :number, required: true, desc: 'Manufacturer id to be updated'
+  api :PATCH, '/manufacturers/:id', 'Updates a manufacturer partially'
+  param :id, :number, desc: 'Manufacturer id to be updated'
+  param :name, String, desc: 'Manufacturer name to be updated'
+  example " 'manufacturer': { 'id': 5, 'name': 'Audi' } "
   def update
     if @manufacturer.update(manufacturer_params)
       render json: @manufacturer
