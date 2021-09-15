@@ -1,7 +1,8 @@
-class ManufacturersController < ApplicationController
+class Api::V1::ManufacturersController < ApplicationController
   before_action :set_manufacturer, only: [:show, :update, :destroy]
 
   # GET /manufacturers
+  api :GET, '/manufacturers', 'List all manufacturers and ther cars'
   def index
     @manufacturers = Manufacturer.all.includes(:cars)
 
