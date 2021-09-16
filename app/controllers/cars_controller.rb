@@ -1,4 +1,4 @@
-class Api::V1::CarsController < ApplicationController
+class CarsController < ApplicationController
   before_action :set_car, only: [:show, :update, :destroy]
 
   def_param_group :car do
@@ -55,7 +55,7 @@ class Api::V1::CarsController < ApplicationController
   # DELETE /cars/1
   api :GET, '/cars/:id', 'Lists one cars'
   param :id, :number, required: true, desc: 'Car ID to be deleted'
-  example " 'car': { 'id': 5 } "
+  example "'car': {\n   'id': 5 \n}"
   def destroy
     @car.destroy
   end

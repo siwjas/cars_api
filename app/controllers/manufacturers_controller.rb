@@ -1,9 +1,5 @@
-class Api::V1::ManufacturersController < ApplicationController
+class ManufacturersController < ApplicationController
   before_action :set_manufacturer, only: [:show, :update, :destroy]
-
-  def_param_group :manufacturer do
-    param :name, String, 'Name of the manufacturer', required: true
-  end
 
   # GET /manufacturers
   api :GET, '/manufacturers', 'Lists all manufacturers and their cars'
@@ -22,8 +18,8 @@ class Api::V1::ManufacturersController < ApplicationController
 
   # POST /manufacturers
   api :POST, '/manufacturers', 'Create a manufacturer'
-  param_group :manufacturer
-  example " 'name': 'Audi' "
+  param :name, String, desc: 'Manufacturer name'
+  example "'manufacturer': {\n  'name': 'Audi' \n}"
   def create
     @manufacturer = Manufacturer.new(manufacturer_params)
 
