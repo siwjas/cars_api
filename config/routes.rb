@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root to: "apipie/apipies#index"
 
   resources :cars
-
   resources :manufacturers do
     resources :cars, only: :show
   end  
