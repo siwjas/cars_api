@@ -19,7 +19,7 @@ class ManufacturersController < ApplicationController
   # POST /manufacturers
   api :POST, '/manufacturers', 'Create a manufacturer'
   param :name, String, desc: 'Manufacturer name'
-  example "'manufacturer': {\n  'name': 'Audi' \n}"
+  example "'manufacturer': {  'name': 'Audi' } | /manufacturers"
   def create
     @manufacturer = Manufacturer.new(manufacturer_params)
 
@@ -34,7 +34,7 @@ class ManufacturersController < ApplicationController
   api :PATCH, '/manufacturers/:id', 'Updates a manufacturer partially'
   param :id, :number, desc: 'Manufacturer id to be updated'
   param :name, String, desc: 'Manufacturer name to be updated'
-  example " 'manufacturer': { 'id': 5, 'name': 'Audi' } "
+  example " 'manufacturer': { 'id': 5, 'name': 'Audi' } | /manufacturers/5"
   def update
     if @manufacturer.update(manufacturer_params)
       render json: @manufacturer

@@ -20,9 +20,9 @@ class CarsController < ApplicationController
   end
 
   # GET /cars/1
-  api :GET, '/cars/:id', 'Lists one cars'
+  api :GET, '/cars/:id', 'List one cars'
   param :id, :number, required: true, desc: 'Required car id'
-  example " 'car': { 'id': 5 } "
+  example " 'car': { 'id': 5 } | /cars/5 "
   def show
     render json: @car
   end
@@ -55,7 +55,7 @@ class CarsController < ApplicationController
   # DELETE /cars/1
   api :GET, '/cars/:id', 'Lists one cars'
   param :id, :number, required: true, desc: 'Car ID to be deleted'
-  example "'car': {\n   'id': 5 \n}"
+  example "'car': { 'id': 5 } | /cars/5"
   def destroy
     @car.destroy
   end
