@@ -12,7 +12,7 @@ class Rack::Attack
   end
   
   # Throttle login attempts by email address
-  #throttle("logins/email", limit: 5, period: 20.seconds) do |req|
+  # throttle("logins/email", limit: 5, period: 20.seconds) do |req|
   #  if req.path == '/users/sign_in' && req.post?
   #    req.params['email'].presence
   #  end  
