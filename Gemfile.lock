@@ -161,7 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (~> 0.10.12)
-  apipie-rails
+  apipie-rails (~> 0.5.19)
   bootsnap (>= 1.4.4)
   byebug
   listen (~> 3.3)
