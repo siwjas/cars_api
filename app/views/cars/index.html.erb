@@ -1,0 +1,27 @@
+<h1>All Cars<h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Cod.</th>
+      <th>Modelo</th>
+      <th>Ano</th>
+    </tr>
+  </thead>
+  <tfoot>
+    <tr>
+      <th>Cod.</th>
+      <th>Modelo</th>
+      <th>Ano</th>     
+    </tr>
+  </tfoot>
+  <tbody>
+  <% @cars.each do |c| %>
+    <tr>
+      <th><%= c['id'] %></th>
+      <td><%= link_to c['name'], '#' %></td>
+      <td><%= c['yaer'] %>  </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
